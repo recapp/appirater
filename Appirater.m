@@ -50,10 +50,10 @@ NSString *templateReviewURL = @"itms-apps://ax.itunes.apple.com/WebObjects/MZSto
 NSString *templateReviewURLiOS6 = @"itms-apps://itunes.apple.com/LANGUAGE/app/idAPP_ID";
 
 static NSString *_appId;
-static double _daysUntilPrompt = 30;
-static NSInteger _usesUntilPrompt = 20;
+static double _daysUntilPrompt = 10;
+static NSInteger _usesUntilPrompt = 3;
 static NSInteger _significantEventsUntilPrompt = -1;
-static double _timeBeforeReminding = 1;
+static double _timeBeforeReminding = 4;
 static BOOL _debug = NO;
 
 @interface Appirater ()
