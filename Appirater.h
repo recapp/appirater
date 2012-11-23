@@ -90,7 +90,11 @@ extern NSString *const kAppiraterReminderRequestDate;
 }
 
 @property(nonatomic, strong) UIAlertView *ratingAlert;
+#if __has_feature(objc_arc_weak)
+@property(nonatomic, weak) NSObject <AppiraterDelegate> *delegate;
+#else
 @property(nonatomic, unsafe_unretained) NSObject <AppiraterDelegate> *delegate;
+#endif
 
 /*
  Tells Appirater that the app has launched, and on devices that do NOT
@@ -183,7 +187,7 @@ extern NSString *const kAppiraterReminderRequestDate;
  In a game, it might be beating a level or a boss. This is just another
  layer of filtering that can be used to make sure that only the most
  loyal of your users are being prompted to rate you on the app store.
- If you leave this at a value of -1, then this won't be a criteria
+ If you leave this at a value of -1, then this won't be a criterion
  used for rating. To tell Appirater that the user has performed
  a significant event, call the method:
  [Appirater userDidSignificantEvent:];
